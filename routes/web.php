@@ -14,8 +14,13 @@ use App\Http\Controllers\FileController;
 |
 */
 
+# Show UI
 Route::get('/', [FileController::class, 'uploadFile'])->name('upload_file');
+
+# Store File
 Route::post('store/file', [FileController::class, 'storeFile'])->name('store_file');
+
+# View File
 Route::get('show/{file}/{num}', [FileController::class, 'showFile'])->name('show_file');
 
 

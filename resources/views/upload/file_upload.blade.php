@@ -3,9 +3,10 @@
 @section('content')
     <div class="show_pdf">
         @if(!empty($file_name))
-            <iframe id="fred" style="border:1px solid #666CCC" title="PDF in an i-Frame" src="./uploads/transaction_report.pdf')}}" frameborder="1" scrolling="auto" height="1100" width="850" ></iframe>
+            <iframe src="{{$path}}" height="1000px" width="100%">
+            </iframe>
         @else
-            <iframe src="https://docs.google.com/viewerng/viewer?url=http://infolab.stanford.edu/pub/papers/google.pdf&embedded=true" frameborder="0" height="1000px" width="100%">
+            <iframe src="{{asset('uploads/'.$data[0])}}" frameborder="0" height="1000px" width="100%">
             </iframe>
             
         @endif

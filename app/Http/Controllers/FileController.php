@@ -10,6 +10,7 @@ class FileController extends Controller
 {
     public function uploadFile(Request $request){
         try {
+            # View File
             $num = 0;
             return view('upload.file_upload', compact('num'));
         } catch (Exception $ex) {
@@ -19,23 +20,30 @@ class FileController extends Controller
 
     public function storeFile(Request $request){
         try {
+            # Validation
             $fileObject = $request->all();
             $rules = array(
-                'file_upload' => 'required|mimes:pdf|max:2048'
+                'file_upload' => 'required|mimes:pdf|max:2000'
             );
+            $customeMesage =  [
+                'file_upload.max' => 'File size limit excedeed.',
+            ];
     
-            $validator = Validator::make($fileObject,$rules);
+            $validator = Validator::make($fileObject, $rules, $customeMesage);
             if($validator->fails()){
-                return $validator->errors();
+                return $validator->errors()->first();
             }
 
+            # File Store
             $fileName = $fileObject['file_upload']->getClientOriginalName();
             $uniqueFile = Str::random(10).'_'.strtolower(trim($fileName));
-            $path = public_path().'/uploads';
+            $path = public_path('uploads');
             if (!file_exists($path)) {
                 mkdir($path, 0777, true);
             }
-            $filePath = $fileObject['file_upload']->storeAs('uploads', $uniqueFile, 'public');
+            $fileObject['file_upload']->move($path, $uniqueFile);
+
+            # File Save
             $status = FileUpload::create([
                 'file_name'=>$uniqueFile
             ]);
@@ -47,12 +55,15 @@ class FileController extends Controller
 
     public function showFile(Request $request, $file_name, $num){
         try {
+            # URL Check
             if(empty($file_name) || empty($file_name)){
                 return back()->with([
                     'message' =>'File Not Found !'
                 ]); 
             }
-            return view('upload.file_upload', compact('file_name','num'));
+            # Path Return
+            $path = asset('uploads/'.$file_name);
+            return view('upload.file_upload', compact('file_name','num', 'path'));
         } catch (Exception $ex) {
             Log::error($ex);
         }

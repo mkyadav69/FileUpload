@@ -115,33 +115,7 @@
     <script src="{{asset('js/jszip.min.js')}}"></script>
     <script src="{{asset('js/vfs_fonts.js')}}"></script>
     <script src="{{asset('js/buttons.html5.min.js')}}"></script>
-    <script>
-       $(document).ready(function(){
-            $('#file_upload').change(function(){  
-                $('#file_upload').submit();  
-            }); 
-             $('#file_upload').on('submit', function(event){  
-                event.preventDefault();
-                $.ajax({  
-                    url:"{{route('store_file')}}",  
-                    method:"POST",   
-                    headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-                    data:new FormData(this),  
-                    contentType:false,  
-                    processData:false,  
-                    success:function(response){
-                        if(response.code == 200){
-                            alert("File uploaded successfully");
-                            let home = "{{route('upload_file')}}";
-                            window.location = home;
-                        }else{
-                            alert(response['file_upload'][0]);
-                        }
-                    }  
-                });
-            });
-        });
-    </script>
+    <script src="{{asset('js/custom.js')}}"></script>
 </body>
 
 </html>
