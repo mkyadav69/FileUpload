@@ -1,65 +1,115 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+Notes :
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+1. Follow PSR-4
+2. Validation
 
-## About Laravel
+UI
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+1. CSS
+2. JAVASCRIPT
+3. Bootstrap Theme (CoolAdmin)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Framework used
+1. Laravel 9
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
+Github URL 
+https://github.com/mkyadav69/FileUpload
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Project URL (Hosted on Go daddy)
+http://uat.demo.com/  
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-## Laravel Sponsors
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
 
-### Premium Partners
+Deployment Instructions
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+1. Install laravel
+    composer create-project laravel/laravel file-upload
 
-## Contributing
+2. Install Dependencies
+    composer install
+    
+3. Permission to storage & public 
+    chmod -R 777 storage/ public/
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+4. Create .env file
+    suod vim .env
 
-## Code of Conduct
+5. Update env file information
+    DB_DATABASE=file_upload
+    DB_USERNAME=root
+    DB_PASSWORD=root
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+6. Clear Cache & Config 
+    php artisan config:cache
 
-## Security Vulnerabilities
+7. Generate app key
+    php artisan generate:key
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+8. Create database table schema
+    php artisan migrate
 
-## License
+9. Apache server configuration
+    =>Goto cd /etc/apache2/site-available
+    =>create conf file file_upload.conf
+    =>update the below content in file
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-# FileUpload
+    <VirtualHost *:80>
+        ServerAdmin webmaster@site
+        ServerName uat.demo.com
+        #DirectoryIndex index.php
+
+        DocumentRoot  /data/docroot/FileUpload/public/
+        <Directory  /data/docroot/FileUpload/public>
+                Options Includes FollowSymLinks MultiViews
+                AllowOverride All
+                #AllowOverride None
+                Require all granted
+        </Directory>
+        #RewriteEngine On
+        #RewriteRule ^(.*)$ https://uat.demo.com$1 [R=301,L]
+
+        ErrorLog /var/log/apache2/uat.demo.com_error.log
+        # Possible values include: debug, info, notice, warn, error, crit,
+        # alert, emerg.
+        LogLevel warn
+        CustomLog /var/log/apache2/uat.demo.com_access.log combined
+    </VirtualHost>
+    => run below command
+    a2ensite uat.chromatographyworld.com.conf
+    => server restart
+    sudo systemctl start apache2
+    sudo service apache2 restart
+    sudo service apache2 reload
+
+    File Needs be refer
+    1. web.php
+    2. FileController.php
+    3. FileUpload.php
+    4. AppServiceProvider
+    5. base_layput.blade.php
+    6. header.blade.php
+    7. sidebar.blade.php
+    8. file_upload.blade.php
+    9. common.css
+    10. custom.js
+    11. In migration folder reref table schema
+
+    I have summerized project details.
+    For any query please let me know.
+
+
+    Thank You
+
+
+
+
+
+
+
+
+
+
+
+
