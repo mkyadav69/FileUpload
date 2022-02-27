@@ -99,11 +99,11 @@ Deployment Instructions
     10. custom.js
     11. In migration folder reref table schema
 
-    I have summerized project details.
-    For any query please let me know.
+10. Time taken 1 day.
 
-
-    Thank You
+I have summerized project details.
+For any query please let me know.
+Thank You
 
 
 
