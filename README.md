@@ -1,7 +1,10 @@
+
+Option 1:PDF Upload Test
+
 Notes :
 
 1. Follow PSR-4
-2. Validation
+2. Validation, file size limitation & file type as pdf
 
 UI
 
