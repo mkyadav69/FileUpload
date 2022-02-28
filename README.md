@@ -4,7 +4,7 @@ Option 1:PDF Upload Test
 Notes :
 
 1. Follow PSR-4
-2. Validation, file size limitation & file type as pdf
+2. Validation, file size limit 2MB & type as pdf
 
 UI
 
@@ -19,11 +19,12 @@ Framework used
 Github URL 
 https://github.com/mkyadav69/FileUpload
 
-Project URL (Hosted on Go daddy)
-http://demo.chromatographyworld.com/  
-
-
-
+Project URL (Hosted on Godaddy)
+    http://demo.chromatographyworld.com/  
+    -Login on GoDaddy
+    -Define type A hosting (IPV4)
+    -Define value IP address
+    -Define Name
 
 Deployment Instructions
 
