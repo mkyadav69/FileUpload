@@ -5,7 +5,7 @@
         @if(!empty($file_name))
             <iframe src="{{$path}}" height="1000px" width="100%">
             </iframe>
-        @else
+        @elseif(!empty($data[0]))
             <iframe src="{{asset('uploads/'.$data[0])}}" frameborder="0" height="1000px" width="100%">
             </iframe>
             
