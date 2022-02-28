@@ -87,7 +87,7 @@ Deployment Instructions
     sudo service apache2 reload
 
     Imporatnt File
-    
+
     1. routes/web.php
     2. app/Http/Controllers/FileController.php
     3. app/Models/FileUpload.php
@@ -100,7 +100,9 @@ Deployment Instructions
     10. public/jscustom.js
     11. database/migrations/2022_02_26_081140_create_file_uploads_table
 
-10. Time taken 1 day.
+10. No plugin used
+
+10. Time taken 7 (Including server setup ).
 
     I have summerized project details.
     For any query please let me know.
