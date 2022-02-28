@@ -86,24 +86,25 @@ Deployment Instructions
     sudo service apache2 restart
     sudo service apache2 reload
 
-    File Needs be refer
-    1. web.php
-    2. FileController.php
-    3. FileUpload.php
-    4. AppServiceProvider
-    5. base_layput.blade.php
-    6. header.blade.php
-    7. sidebar.blade.php
-    8. file_upload.blade.php
-    9. common.css
-    10. custom.js
-    11. In migration folder reref table schema
+    Imporatnt File
+    
+    1. routes/web.php
+    2. app/Http/Controllers/FileController.php
+    3. app/Models/FileUpload.php
+    4. app/Providers/AppServiceProvider
+    5. resources/views/theme/layout/base_layput.blade.php
+    6. resources/views/theme/layout/header.blade.php
+    7. resources/views/theme/layout/sidebar.blade.php
+    8. resources/views/upload/file_upload.blade.php
+    9.  public/css/common.css
+    10. public/jscustom.js
+    11. database/migrations/2022_02_26_081140_create_file_uploads_table
 
 10. Time taken 1 day.
 
-I have summerized project details.
-For any query please let me know.
-Thank You
+    I have summerized project details.
+    For any query please let me know.
+    Thank You
 
 
 
