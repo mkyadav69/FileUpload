@@ -20,7 +20,7 @@ Github URL
 https://github.com/mkyadav69/FileUpload
 
 Project URL (Hosted on Go daddy)
-http://uat.demo.com/  
+http://demo.chromatographyworld.com/  
 
 
 
