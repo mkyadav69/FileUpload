@@ -102,6 +102,8 @@ Deployment Instructions
 
 10. No plugin used
 
+11. Uploaded file display in descending order (latest on top)
+
 10. Time taken 7 (Including server setup ).
 
     I have summerized project details.
