@@ -15,7 +15,7 @@ return [
     | AshAllenDesign\ShortURL\Controllers\ShortURLController
     |
     */
-    'disable_default_route' => true,
+    'disable_default_route' => false,
 
     /*
     |--------------------------------------------------------------------------
@@ -110,6 +110,4 @@ return [
     |
     */
     'validate_config' => false,
-
-    'prefix' => 's',
 ];
