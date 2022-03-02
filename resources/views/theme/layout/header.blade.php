@@ -3,7 +3,7 @@
         <div class="header-wrap">
             <form class="form-header" action="" method="POST">
                 <div class="content">
-                   <h2 id="file_number" style="color: #FFFFFF;"></h2>
+                   <h2 id="file_number">Hashed URL</h2>
                 </div>
             </form>
            

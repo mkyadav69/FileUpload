@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\FileController;
+use App\Http\Controllers\UrlController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,13 +15,12 @@ use App\Http\Controllers\FileController;
 */
 
 # Show UI
-Route::get('/', [FileController::class, 'uploadFile'])->name('upload_file');
+Route::get('/', [UrlController::class, 'urlForm'])->name('url_form');
 
-# Store File
-Route::post('store/file', [FileController::class, 'storeFile'])->name('store_file');
+# Store Url
+Route::post('generate/url', [UrlController::class, 'generateUrl'])->name('generate_url');
 
-# View File
-Route::get('show/{file}/{num}', [FileController::class, 'showFile'])->name('show_file');
-
+# Redirect to Original URL
+Route::get('as/{key}', [UrlController::class, 'redirectToOriginalUrl'])->name('orignal_url');
 
 

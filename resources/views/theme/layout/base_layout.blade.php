@@ -45,45 +45,11 @@
     <link href="{{asset('css/summernote-bs4.css') }}" rel="stylesheet">
 </head>
 <body class="animsition">
-    <div class="page-wrapper">
-        <!-- MENU SIDEBAR-->
-        <aside class="menu-sidebar d-none d-block row">
-            <div class="row form-group file_upload">
-                <div class="form-group col-6">
-                    <h6>FILES</6> 
-                </div>
-                <div class="form-group col-2">
-                    <form mehtod="post" id="file_upload"> 
-                        <input id="file_upload" name="file_upload" type="file" accept="application/pdf"/>
-                    </form> 
-                </div>
-            </div>
-            <div>
-                <hr>
-                @include('theme.layout.sidebar')
-            </div>
-        </aside>
-        <!-- END MENU SIDEBAR-->
-
-        <!-- PAGE CONTAINER-->
-        <div class="page-container">
-            <!-- HEADER DESKTOP-->
-            <header class="header-desktop">
-                @include('theme.layout.header')
-            </header>
-            <!-- HEADER DESKTOP-->
-
-            <div class="main-content">
-                <div class="section__content section__content--p30">
-                    <div class="container-fluid">
-                        @yield('content')
-                    </div>
-                </div>
-            </div>
-            <!-- END MAIN CONTENT-->
-            <!-- END PAGE CONTAINER-->
+    <div class="section__content section__content--p30">
+        <div class="container-fluid">
+            @yield('content')
         </div>
-
+    </div>
     <script src="{{asset('js/moment.js')}}"></script>
     <script src="{{asset('js/daterangepicker.min.js')}}"></script>
     <script src="{{asset('js/jquery-ui.min.js')}}"></script>
@@ -115,7 +81,23 @@
     <script src="{{asset('js/jszip.min.js')}}"></script>
     <script src="{{asset('js/vfs_fonts.js')}}"></script>
     <script src="{{asset('js/buttons.html5.min.js')}}"></script>
-    <script src="{{asset('js/custom.js')}}"></script>
+    <script>
+            alert("ll");
+        $(document).ready(function(){
+            // $('#url_validity').datepicker({
+            //     leftArrow: '&laquo;',
+            //     rightArrow: '&raquo;',
+            //     daysOfWeekHighlighted: "7,0",
+            //     autoclose: true,
+            //     todayHighlight: true,
+            //     orientation: 'bottom',
+            //     endDate:'today',
+            // }).datepicker("setDate",'now');
+
+            
+        }):
+    </script>
+    <!-- <script src="{{asset('js/custom.js')}}"></script> -->
 </body>
 
 </html>
