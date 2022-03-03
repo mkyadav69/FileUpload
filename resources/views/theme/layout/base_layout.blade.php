@@ -82,22 +82,37 @@
     <script src="{{asset('js/vfs_fonts.js')}}"></script>
     <script src="{{asset('js/buttons.html5.min.js')}}"></script>
     <script>
-            alert("ll");
         $(document).ready(function(){
-            // $('#url_validity').datepicker({
-            //     leftArrow: '&laquo;',
-            //     rightArrow: '&raquo;',
-            //     daysOfWeekHighlighted: "7,0",
-            //     autoclose: true,
-            //     todayHighlight: true,
-            //     orientation: 'bottom',
-            //     endDate:'today',
-            // }).datepicker("setDate",'now');
+            $('#datepicker').datepicker({
+                leftArrow: '&laquo;',
+                rightArrow: '&raquo;',
+                daysOfWeekHighlighted: "7,0",
+                autoclose: true,
+                todayHighlight: true,
+                orientation: 'bottom',
+                endDate:'today',
+            }).datepicker("setDate",'now');
 
-            
-        }):
+            $('input[name="url_validity"]').daterangepicker({
+                autoUpdateInput : false,
+                linkedCalendars : false,
+                minYear         : 2000,
+                showDropdowns   : true,
+                locale          : {
+                                    cancelLabel: 'Clear',
+                                    format: 'DD-MM-YYYY'
+                                }
+                });
+            });
+
+            $('input[name="url_validity"]').on('apply.daterangepicker', function(ev, picker) {
+                $(this).val(picker.startDate.format('DD-MM-YYYY') + ' | ' + picker.endDate.format('DD-MM-YYYY'));
+
+            });
+            $('input[name="url_validity"]').on('cancel.daterangepicker', function(ev, picker) {
+                $(this).val('');
+            });
     </script>
-    <!-- <script src="{{asset('js/custom.js')}}"></script> -->
 </body>
 
 </html>

@@ -57,7 +57,7 @@
                             <label for="file-input" class="form-control-label"><strong>Short URL Validity</strong></label>
                         </div>
                         <div class="col-md-6">
-                            <input type="text" class="form-control" placeholder="Short URL Validity e.g 01/03/2022 To 24/03/22" name="url_validity" id="url_validity">
+                            <input type="text" class="form-control" placeholder="Short URL Validity e.g 01/03/2022 To 24/03/22" name="url_validity" value="{{old('url_validity')}}">
                         </div>
                     </div>
 
@@ -134,30 +134,4 @@
     </div>
 </div>
 <!-- End Add-->
-<script>
-    // function onlyNumberKey(evt){
-    //     var charCode = (evt.which) ? evt.which : evt.keyCode;
-    //     if (charCode != 46 && charCode > 31 
-    //     && (charCode < 48 || charCode > 57))
-    //         return false;
-    //     return true;
-    // });
-    $("div #http_redirect").click(function(){
-        alert('clicked!');
-    });
-    $(document).ready(function(){
-        alert("ll");
-        // $('#url_validity').datepicker({
-        //     leftArrow: '&laquo;',
-        //     rightArrow: '&raquo;',
-        //     daysOfWeekHighlighted: "7,0",
-        //     autoclose: true,
-        //     todayHighlight: true,
-        //     orientation: 'bottom',
-        //     endDate:'today',
-        // }).datepicker("setDate",'now');
-
-        
-    }):
-</script>
 @endsection

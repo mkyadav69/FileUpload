@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Validator, Exception, Log, Cache, View;
 use App\Models\FileUpload;
+use Carbon\Carbon;
 use Illuminate\Support\Str;
 use \AshAllenDesign\ShortURL\Models\ShortURL;
 use Config;
@@ -99,11 +100,16 @@ class UrlController extends Controller
                     }
                         
                     #  Url Validity
-                    if(!empty($value) && $key == 'activation_deactivation_time'){
-                        $shortURLObject->activateAt(\Carbon\Carbon::now()->addDay())
-                        ->deactivateAt(\Carbon\Carbon::now()->addDays(2));
-                        $request->session()->flash('activation_deactivation_time', 'true');
+                    if(!empty($value) && $key == 'url_validity'){
+                        $date = explode('|', $value);
+                        $from_date = $date[0];
+                        $to_date = $date[1];
+                        $start_date = new \Carbon\Carbon($from_date);
+                        $end_date = new \Carbon\Carbon($to_date);
+                        $shortURLObject->activateAt($start_date)->deactivateAt($end_date);
+                        $request->session()->flash('url_validity', 'true');
                     }
+
                     # Redirect Status Code Mapping
                     if(!empty($value) && $key == 'http_redirect'){
                         $status_code = [
