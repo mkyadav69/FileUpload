@@ -1,23 +1,21 @@
-
-Option 1:PDF Upload Test
-
 Notes :
 
-1. Follow PSR-4
-2. Validation, file size limit 2MB & type as pdf
+1. Follow PSR-4 Guidlines
+2. Url Validation,
 
 UI
-
 1. CSS
 2. JAVASCRIPT
 3. Bootstrap Theme (CoolAdmin)
 
-Framework used
+Backend Framework
 1. Laravel 9
-
+    => Reason to choose laravel becouse its provide packages which you can use in your application.
+    You can customize anything you want with the help of cofiguration file & the method provided by package.
 
 Github URL 
 https://github.com/mkyadav69/FileUpload
+Branch 'url_hashing_stystem'
 
 Project URL (Hosted on Godaddy)
     http://demo.chromatographyworld.com/  
@@ -74,11 +72,11 @@ Deployment Instructions
         #RewriteEngine On
         #RewriteRule ^(.*)$ https://uat.demo.com$1 [R=301,L]
 
-        ErrorLog /var/log/apache2/uat.demo.com_error.log
+        ErrorLog /var/log/apache2/demo.com_error.log
         # Possible values include: debug, info, notice, warn, error, crit,
         # alert, emerg.
         LogLevel warn
-        CustomLog /var/log/apache2/uat.demo.com_access.log combined
+        CustomLog /var/log/apache2/demo.com_access.log combined
     </VirtualHost>
     => run below command
     a2ensite uat.chromatographyworld.com.conf
@@ -90,23 +88,16 @@ Deployment Instructions
     Imporatnt File
 
     1. routes/web.php
-    2. app/Http/Controllers/FileController.php
-    3. app/Models/FileUpload.php
-    4. app/Providers/AppServiceProvider
-    5. resources/views/theme/layout/base_layput.blade.php
-    6. resources/views/theme/layout/header.blade.php
-    7. resources/views/theme/layout/sidebar.blade.php
-    8. resources/views/upload/file_upload.blade.php
-    9.  public/css/common.css
-    10. public/jscustom.js
-    11. database/migrations/2022_02_26_081140_create_file_uploads_table
+    2. app/Http/Controllers/UrlController.php
+    3. resources/views/hash/hash_file.blade.php
+    4. database/migrations/2019_12_22_015115_create_short_urls_table.php
+                           2019_12_22_015214_create_short_url_visits_table.php
+                           2020_02_11_224848_update_short_url_table_for_version_two_zero_zero.php
+                           2020_02_12_008432_update_short_url_visits_table_for_version_two_zero_zero.php
+                           2020_04_10_224546_update_short_url_table_for_version_three_zero_zero.php
 
-10. No plugin used
-
-11. Uploaded file display in descending order (latest on top)
 
 10. Time taken 7 (Including server setup ).
-
     I have summerized project details.
     For any query please let me know.
     Thank You
